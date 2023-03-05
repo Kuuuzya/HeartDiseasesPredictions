@@ -9,6 +9,7 @@ from streamlit_pandas_profiling import st_profile_report
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
                    layout='wide',
                    initial_sidebar_state='expanded')
+
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
 #st.write(x, 'sqr3', x**3)
