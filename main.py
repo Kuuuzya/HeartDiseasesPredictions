@@ -12,6 +12,9 @@ ap_lo = rc.slider('Диастолическое (нижнее) давление'
 
 lc.checkbox("Курю", key="smoke")
 rc.selectbox("Уровень холестерина",[0,1,2], key="cholesterol")
+rc.write('')
+lc.write('')
+st.write('')
 
 #output
 with lc:
