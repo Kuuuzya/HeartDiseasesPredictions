@@ -1,8 +1,15 @@
 import pandas as pd
 import ydata-profiling as pp
-import streamlit.components.v1 as components
 import streamlit as st
+import streamlit.components.v1 as components
 import io
+import pandas_profiling
+from streamlit_pandas_profiling import st_profile_report
+
+
+pr = train.profile_report()
+
+st_profile_report(pr)
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
@@ -27,11 +34,6 @@ st.text(s)
 
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
-
-st.title('Explore a dataset')
-
-prof = ProfileReport(train, explorative=True, minimal=True)
-output = prof.to_file('output.html', silent=False)```
 
 #input
 st.header('Введите данные')
