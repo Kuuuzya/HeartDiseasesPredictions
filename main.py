@@ -1,9 +1,8 @@
 import pandas as pd
+import ydata-profiling as pp
+import streamlit.components.v1 as components
 import streamlit as st
 import io
-
-import pandas-profiling as pp
-import streamlit.components.v1 as components
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
