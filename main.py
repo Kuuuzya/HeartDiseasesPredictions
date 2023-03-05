@@ -23,4 +23,6 @@ with lc:
         st.write('Курит')
 
 with rc:
+    st.write('')
+    st.write('')
     st.write('Уровень холестерина:', st.session_state.cholesterol)
