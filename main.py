@@ -3,7 +3,10 @@ import streamlit as st
 import io
 
 #настраиваем вид страницы streamlit
-st.set_page_config(layout="wide")
+st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
+                   layout='wide',
+                   initial_sidebar_state=True,
+                   menu_items=['Info'])
 
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
