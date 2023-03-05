@@ -29,8 +29,10 @@ st.text(s)
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
 
-report = pp.ProfileReprot(df, title="Датасет Train").to_html()
-components.html(report, height=800, width=1200)
+st.title('Explore a dataset')
+
+prof = ProfileReport(train, explorative=True, minimal=True)
+output = prof.to_file('output.html', silent=False)```
 
 #input
 st.header('Введите данные')
