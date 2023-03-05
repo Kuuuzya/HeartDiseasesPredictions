@@ -1,8 +1,6 @@
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
 import io
-import ydata_profiling
 from streamlit_pandas_profiling import st_profile_report
 
 
