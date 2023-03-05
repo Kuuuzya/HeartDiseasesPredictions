@@ -12,7 +12,7 @@ st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle
 #st.write(x, 'sqr3', x**3)
 
 st.header('Введение в проект')
-st.sidebar.header('Введение в проект', #train-csv)
+st.sidebar.header('Введение в проект', '#train-csv')
 
 st.subheader('Изучим файл train.csv')
 train = pd.read_csv('train.csv')
