@@ -15,10 +15,12 @@ rc.selectbox("Уровень холестерина",[0,1,2], key="cholesterol")
 
 #output
 st.header('Результаты')
-st.write('Давление:', ap_hi,'/',ap_lo)
+with lc:
+    st.write('Давление:', ap_hi,'/',ap_lo)
+    if st.session_state.smoke == False:
+        st.write('Не курит')
+    else:
+        st.write('Курит')
 
-if lc.session_state.smoke == False:
-    rc.write('Не курит')
-else:
-    rc.write('Курит')
-st.write('Уровень холестерина:', st.session_state.cholesterol)
+with rc:
+    st.write('Уровень холестерина:', st.session_state.cholesterol)
