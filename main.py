@@ -14,8 +14,8 @@ lc.checkbox("Курю", key="smoke")
 rc.selectbox("Уровень холестерина",[0,1,2], key="cholesterol")
 
 #output
-st.header('Результаты')
 with lc:
+    st.header('Результаты')
     st.write('Давление:', ap_hi,'/',ap_lo)
     if st.session_state.smoke == False:
         st.write('Не курит')
