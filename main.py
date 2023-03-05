@@ -1,6 +1,9 @@
 import pandas as pd
 import streamlit as st
 import io
+from pandas_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
+
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
@@ -26,8 +29,11 @@ st.text(s)
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
 
-pr = train.profile_report()
-st.write(pr)
+
+profile = ProfileReport(train, title="Agriculture Data")
+st.title("Pandas Profiling in Streamlit!")
+st.write(train)
+st_profile_report(profile)
 
 #input
 st.header('Введите данные')
