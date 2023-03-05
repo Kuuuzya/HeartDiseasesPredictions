@@ -15,7 +15,9 @@ st.title('Введение в проект', anchor='intro')
 st.sidebar.header('[Введение в проект](#intro)')
 
 
-st.subheader('Изучим файл train.csv')
+st.subheader('Изучаем файл train.csv',anchor='train')
+st.sidebar.subheader('[Изучаем файл train.csv](#train)')
+
 train = pd.read_csv('train.csv')
 st.write('Информация о датасете Train')
 
@@ -34,7 +36,8 @@ st.write(train.head(10))
 #st_profile_report(profile)
 
 #input
-st.header('Введите данные')
+st.header('Проверим ваше сердце', anchor='heart')
+st.sidebar.header('[Проверим ваше сердце](#heart)')
 st.subheader('Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой у вас риск сердечного приступа.')
 lc, rc = st.columns(2)
 ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150 )
