@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import io
 
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
@@ -10,7 +11,13 @@ st.header('Введение в проект')
 st.subheader('Изучим файл train.csv')
 train = pd.read_csv('train.csv')
 st.write('Информация о датасете Train')
-st.write(train.info())
+
+#сложный вывод информации, но иначе не работает
+buffer = io.StringIO()
+train.info(buf=buffer)
+s = buffer.getvalue()
+st.text(s)
+
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
 
