@@ -1,11 +1,8 @@
 import pandas as pd
 import streamlit as st
 import io
-from streamlit_pandas_profiling import st_profile_report
-
 
 pr = train.profile_report()
-
 st_profile_report(pr)
 
 #настраиваем вид страницы streamlit
