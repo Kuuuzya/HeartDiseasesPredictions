@@ -11,7 +11,7 @@ ap_hi = lc.slider('Систолическое (верхнее) давление'
 ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100 )
 
 lc.checkbox("Курю", key="smoke")
-rc.selectbox("Уровень холестерина",['Низкий','Средний','Высокий'], key="cholesterol")
+rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol")
 rc.write('')
 lc.write('')
 st.write('')
