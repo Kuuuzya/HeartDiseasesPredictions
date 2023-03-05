@@ -2,9 +2,6 @@ import pandas as pd
 import streamlit as st
 import io
 
-pr = train.profile_report()
-st_profile_report(pr)
-
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
                    layout='wide',
@@ -28,6 +25,9 @@ st.text(s)
 
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
+
+pr = train.profile_report()
+st.write(pr)
 
 #input
 st.header('Введите данные')
