@@ -30,6 +30,9 @@ st.text(s)
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
 
+st.write('Данные выглядят целостно и полно. Однако, есть вопрос к колонке age. Это возраст в днях. '
+         'Для нас колонка не очень информативна, однако, такая детализация гораздо лучше подходит для работы модели.')
+
 
 #profile = ProfileReport(train, title="Agriculture Data")
 #st.write(train)
@@ -62,3 +65,6 @@ with rc:
     st.write('')
     st.write('')
     st.write('Уровень холестерина:', st.session_state.cholesterol.lower())
+
+
+st.write('Другие проекты в [моём профиле на GitHub]('https://github.com/Kuuuzya')
