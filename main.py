@@ -11,8 +11,8 @@ st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle
 #st.write(x, 'sqr', x**2)
 #st.write(x, 'sqr3', x**3)
 
-st.header('Введение в проект')
-st.sidebar.header('Введение в проект', '#train-csv')
+st.title('Введение в проект', #intro)
+st.sidebar.header('Введение в проект', #intro)
 
 st.subheader('Изучим файл train.csv')
 train = pd.read_csv('train.csv')
@@ -29,7 +29,6 @@ st.write(train.head(10))
 
 
 #profile = ProfileReport(train, title="Agriculture Data")
-st.title("Pandas Profiling in Streamlit!")
 #st.write(train)
 #st_profile_report(profile)
 
