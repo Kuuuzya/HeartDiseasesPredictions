@@ -2,6 +2,9 @@ import pandas as pd
 import streamlit as st
 import io
 
+#настраиваем вид страницы streamlit
+st.set_page_config(layout="wide")
+
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
 #st.write(x, 'sqr3', x**3)
