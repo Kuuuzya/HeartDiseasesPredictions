@@ -10,7 +10,7 @@ st.header('Введение в проект')
 st.subheader('Изучим файл train.csv')
 train = pd.read_csv('train.csv')
 st.write('Информация о датасете Train')
-st.write(train.info())
+st.write(train.info)
 st.write('Первые 10 строк датасета Train')
 st.write(train.head())
 
