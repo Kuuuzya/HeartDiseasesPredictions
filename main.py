@@ -2,11 +2,13 @@ import pandas as pd
 import streamlit as st
 import io
 
+import pandas-profiling as pp
+import streamlit.components.v1 as components
+
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
                    layout='wide',
                    initial_sidebar_state='expanded')
-ProfileReport(train, title="Profiling Report", html={'style':{'full_width':True}})
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
 #st.write(x, 'sqr3', x**3)
@@ -26,6 +28,9 @@ st.text(s)
 
 st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
+
+report = pp.ProfileReprot(df, title="Датасет Train").to_html()
+components.html(report, height=800, width=1200)
 
 #input
 st.header('Введите данные')
