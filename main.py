@@ -28,10 +28,10 @@ st.write('Первые 10 строк датасета Train')
 st.write(train.head(10))
 
 
-profile = ProfileReport(train, title="Agriculture Data")
+#profile = ProfileReport(train, title="Agriculture Data")
 st.title("Pandas Profiling in Streamlit!")
-st.write(train)
-st_profile_report(profile)
+#st.write(train)
+#st_profile_report(profile)
 
 #input
 st.header('Введите данные')
