@@ -1,9 +1,6 @@
 import pandas as pd
 import streamlit as st
 import io
-from ydata_profiling import ProfileReport
-from streamlit_pandas_profiling import st_profile_report
-
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
