@@ -12,5 +12,8 @@ st.checkbox("Курю", key="smoke")
 st.selectbox("Уровень холестерина",[0,1,2], key="cholesterol")
 
 st.write('Давление:', ap_hi,'/',ap_lo)
-st.write('Курение:', st.session_state.smoke)
+if st.session_state.smoke == False:
+    st.write('Не курит')
+else:
+    st.write('Курит')
 st.write('Уровень холестерина:', st.session_state.cholesterol)
