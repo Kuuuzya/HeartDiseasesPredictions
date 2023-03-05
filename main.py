@@ -7,4 +7,4 @@ st.write(x, 'sqr3', x**3)
 ap_hi = st.slider('Систолическое (верхнее) давление', 80, 150 )
 ap_lo = st.slider('Диастолическое (нижнее) давление', 40, 100 )
 
-st.chekbox('Курите?', key=smoke)
+st.chekbox('Курите?', key="smoke")
