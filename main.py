@@ -1,9 +1,13 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
 
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
 #st.write(x, 'sqr3', x**3)
+
+st.header('Введение в проект')
+train = pd.read_csv('train.csv')
+st.write(train.head())
 
 #input
 st.header('Введите данные')
