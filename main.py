@@ -28,4 +28,4 @@ with lc:
 with rc:
     st.write('')
     st.write('')
-    st.write('Уровень холестерина:', st.session_state.cholesterol)
+    st.write('Уровень холестерина:', str(st.session_state.cholesterol).toLowerCase())
