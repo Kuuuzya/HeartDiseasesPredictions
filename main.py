@@ -6,7 +6,7 @@ import io
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
                    layout='wide',
                    initial_sidebar_state='expanded')
-
+ProfileReport(train, title="Profiling Report", html={'style':{'full_width':True}})
 #x = st.slider('YYY')
 #st.write(x, 'sqr', x**2)
 #st.write(x, 'sqr3', x**3)
