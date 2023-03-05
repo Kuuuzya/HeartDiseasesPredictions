@@ -67,4 +67,4 @@ with rc:
     st.write('Уровень холестерина:', st.session_state.cholesterol.lower())
 
 
-st.write('Другие проекты в [моём профиле на GitHub]('https://github.com/Kuuuzya')
+st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
