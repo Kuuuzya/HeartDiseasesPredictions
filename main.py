@@ -25,11 +25,11 @@ weight = rc.slider('Вес (кг)', 47, 150, 85 )
 ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120 )
 ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70 )
 
-smoke = lc.radio("Курите?", options=("Да", "Нет"), key='smoke')
-alco = lc.radio("Пьёте?", options=("Да", "Нет"), key='alco')
+smoke = lc.radio("Курите?", options=("Нет", "Да"), key='smoke', horizontal=st.session_state.horizontal)
+alco = lc.radio("Пьёте?", options=("Нет", "Да"), key='alco', horizontal=st.session_state.horizontal)
 
-rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol")
-rc.selectbox("Уровень глюкозы в крови",['Низкий', 'Средний', 'Высокий'], key="gluc")
+rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol", index=1)
+rc.selectbox("Уровень глюкозы в крови",['Низкий', 'Средний', 'Высокий'], key="gluc", index=1)
 
 rc.write('')
 lc.write('')
