@@ -73,7 +73,8 @@ with rc:
 def load():
     with open('model_xgb.pkl', 'rb') as mod:
         return pickle.load(mod)
-model = load()
+
+model_test = load()
 
 age = 35*365
 height = 188
