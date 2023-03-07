@@ -51,19 +51,19 @@ if height == weight:
 elif imt<16:
     st.warning('Ваш ИМТ: ', imt, ', выраженный дефицит массы тела')
     fl_imt=1
-elif (imt >= 16)AND(imt < 18.5):
+elif (imt >= 16)and(imt < 18.5):
     st.warning('Ваш ИМТ: ',imt,', недостаточная (дефицит) масса тела')
     fl_imt = 1
-elif (imt >= 18.5)AND(imt <= 25):
+elif (imt >= 18.5)and(imt <= 25):
     st.write('Ваш ИМТ: ', imt, ', норма')
     fl_imt = 1
-elif (imt>25)AND(imt<=30):
+elif (imt>25)and(imt<=30):
     st.warning('Ваш ИМТ: ',imt,', избыточная масса тела (предожирение)')
     fl_imt = 1
-elif (imt>30)AND(imt<=35):
+elif (imt>30)and(imt<=35):
     st.warning('Ваш ИМТ: ',imt,', ожирение первой степени')
     fl_imt = 1
-elif (imt>35)AND(imt<=40):
+elif (imt>35)and(imt<=40):
     st.warning('Ваш ИМТ: ',imt,', ожирение второй степени')
     fl_imt = 1
 else (imt>40):
@@ -71,7 +71,7 @@ else (imt>40):
     fl_imt = 1
 
 
-""" if (fl_ap == 1) AND (fl_imt == 1):
+""" if (fl_ap == 1) and (fl_imt == 1):
     #output
     with lc:
         st.header('Результаты')
