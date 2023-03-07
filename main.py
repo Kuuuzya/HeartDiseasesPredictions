@@ -73,5 +73,5 @@ data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active
 st.write(data)
 #y_pr = model_test.predict_proba(data)[:,1]
 
-st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(y_pr))
+#st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(y_pr))
 st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
