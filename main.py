@@ -10,9 +10,7 @@ st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle
                    layout='wide',
                    initial_sidebar_state='expanded'
                    )
-
 st.title('Проверим ваше сердце')
-
 # input
 #st.snow() #добавим снег, просто потому что почему бы и нет?!
 st.markdown("<span style='color:lightgrey'>Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.</span>", unsafe_allow_html=True)
