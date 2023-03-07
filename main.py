@@ -165,7 +165,6 @@ if (fl_ap == 1) and (fl_imt == 1):
     scaler = RobustScaler()
     scaler.fit(features[numeric])
     data[numeric] = scaler.transform(data[numeric])
-
     pr = model_test.predict_proba(data)[:,1]
 
     st.sidebar.header('Результаты')
