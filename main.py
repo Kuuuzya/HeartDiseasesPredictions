@@ -14,8 +14,9 @@ st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle
 st.title('Проверим ваше сердце')
 
 # input
-st.subheader(
-    'Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.')
+st.snow()
+st.write(
+    '<span style='color:lightgrey'>Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.</span>', unsafe_allow_html=True)
 lc, rc = st.columns(2)
 age = lc.slider('Возраст', 20, 100, 35)
 gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
