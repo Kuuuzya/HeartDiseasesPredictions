@@ -45,11 +45,13 @@ with rc:
 def load():
     with open('model_RFC.pcl', 'rb') as mod:
         return pickle.load(mod)
-try:
-    model_test = load()
-    st.write('Модель загружена')
-except:
-    st.write('Модель НЕ загружена')
+model_test = load()
+
+#try:
+#    model_test = load()
+#    st.write('Модель загружена')
+#except:
+#    st.write('Модель НЕ загружена')
 
 age = 35*365
 height = 188
