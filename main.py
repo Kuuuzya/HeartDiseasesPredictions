@@ -2,8 +2,6 @@ import pandas as pd
 import streamlit as st
 import io
 import pickle
-import scikit-learn
-from pickle import dump, load
 #from sklearn.preprocessing import StandardScaler, OneHotEncoder, RobustScaler
 
 #настраиваем вид страницы streamlit
