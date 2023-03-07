@@ -1,6 +1,9 @@
 import pandas as pd
 import streamlit as st
 import io
+import pickle
+from pickle import dump, load
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, RobustScaler
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
@@ -66,5 +69,27 @@ with rc:
     st.write('')
     st.write('Уровень холестерина:', st.session_state.cholesterol.lower())
 
+
+def load():
+    with open('model_xgb.pkl', 'rb') as mod:
+        return pickle.load(mod)
+model = load()
+
+age = 35*365
+height = 188
+weight = 95
+ap_hi = 120
+ap_lo = 70
+gender = 1
+cholesterol = 1
+gluc = 1
+smoke = 1
+alco = 1
+active = 0
+
+data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
+st.write(data)
+y_pr = model.predict_proba(data)[:,1]
+st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(y_pr))
 
 st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
