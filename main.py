@@ -186,6 +186,10 @@ else:
     st.warning('Тут будут результаты, когда вы правильно введёте данные.')
 st.sidebar.write('')
 st.sidebar.write('')
-st.sidebar.write("<span style='color:'>Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)</span>")
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write("_Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)_")
 
 
