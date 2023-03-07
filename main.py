@@ -160,20 +160,20 @@ if (fl_ap == 1) and (fl_imt == 1):
                   'active_0': active_0,
                   'active_1': active_1
                   }, index=[0])
-    st.write(data.head())
+    #st.write(data.head())
 
-    #numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
+    numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 
-    #features = pd.read_csv('features.csv')
+    features = pd.read_csv('features.csv')
 
-    #scaler = RobustScaler()
-    #scaler.fit(features[numeric])
-    #data[numeric] = scaler.transform(data[numeric])
+    scaler = RobustScaler()
+    scaler.fit(features[numeric])
+    data[numeric] = scaler.transform(data[numeric])
 
-    #pr = model_test.predict_proba(data)[:,1]
+    pr = model_test.predict_proba(data)[:,1]
 
-    #st.write(pr)
-    #st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(pr))
+
+    st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет: ', pr*100,'%'))
 st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
 
 
