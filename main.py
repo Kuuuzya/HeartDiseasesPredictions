@@ -22,7 +22,7 @@ lc, rc = st.columns(2)
 age = lc.slider('Возраст', 20, 100, 35)
 gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
 height = lc.slider('Рост (см)', 150, 210, 175)
-weight = rc.slider('Вес (кг)', 47, 150, 85)
+weight = rc.slider('Вес (кг)', 47, 150, 75)
 ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120)
 ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70)
 
