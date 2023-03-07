@@ -26,7 +26,7 @@ ap_hi = lc.slider('Систолическое (верхнее) давление'
 ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70 )
 
 smoke = lc.radio("Курите?", options=("Да", "Нет"), key='smoke')
-alco = lc.radio("Пьёте?", options=("Да", "Нет"), key='smoke')
+alco = lc.radio("Пьёте?", options=("Да", "Нет"), key='alco')
 
 rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol")
 rc.selectbox("Уровень глюкозы в крови",['Низкий', 'Средний', 'Высокий'], key="gluc")
