@@ -44,7 +44,7 @@ with rc:
 
 
 def load():
-    with open('model_XGB.pcl', 'rb') as mod:
+    with open('model_xgb.save_model', 'rb') as mod:
         return pickle.load(mod)
 model_test = load()
 
