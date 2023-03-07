@@ -1,3 +1,5 @@
+from typing import Any
+
 import pandas as pd
 import streamlit as st
 import io
@@ -5,7 +7,7 @@ import pickle
 import numpy as np
 from sklearn.preprocessing import RobustScaler
 
-#настраиваем вид страницы streamlit
+# настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
                    layout='wide',
                    initial_sidebar_state='expanded')
@@ -13,39 +15,39 @@ st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle
 st.title('Введение в проект', anchor='intro')
 st.sidebar.header('[Введение в проект](#intro)')
 
-#input
+# input
 st.header('Проверим ваше сердце', anchor='heart')
 st.sidebar.header('[Проверим ваше сердце](#heart)')
-st.subheader('Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.')
+st.subheader(
+    'Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.')
 lc, rc = st.columns(2)
-age = lc.slider('Возраст', 20, 100, 35 )
+age = lc.slider('Возраст', 20, 100, 35)
 gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
 height = lc.slider('Рост (см)', 150, 210, 175)
-weight = rc.slider('Вес (кг)', 47, 150, 85 )
-ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120 )
-ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70 )
+weight = rc.slider('Вес (кг)', 47, 150, 85)
+ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120)
+ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70)
 
 smoke = lc.radio("Курите?", options=("Нет", "Да"), key='smoke', horizontal=True)
 alco = lc.radio("Пьёте?", options=("Нет", "Да"), key='alco', horizontal=True)
 
-cholesterol = rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol", index=1)
-gluc = rc.selectbox("Уровень глюкозы в крови",['Низкий', 'Средний', 'Высокий'], key="gluc", index=1)
-active = rc.selectbox("Уровень физической активности",['Низкий', 'Высокий'], key="active")
-
+cholesterol = rc.selectbox("Уровень холестерина", ['Низкий', 'Средний', 'Высокий'], key="cholesterol", index=1)
+gluc = rc.selectbox("Уровень глюкозы в крови", ['Низкий', 'Средний', 'Высокий'], key="gluc", index=1)
+active = rc.selectbox("Уровень физической активности", ['Низкий', 'Высокий'], key="active")
 
 st.write('')
 
-#обработка
-fl_ap = 0 #флажок, вверно ли введены данные
+# обработка
+fl_ap = 0  # флажок, вверно ли введены данные
 if ap_hi == ap_lo:
     st.warning('Верхнее давление не может быть равно нижнему')
-elif ap_hi<ap_lo:
+elif ap_hi < ap_lo:
     st.warning('Верхнее давление не может быть выше нижнего. Проверьте данные!')
 else:
     fl_ap = 1
 
-imt = weight/((height/100)**2)
-st.write('Жопа',imt.round(2))
+imt: float | Any = weight / ((height / 100) ** 2)
+st.write('Жопа', imt)
 
 """ if (fl_ap == 1) and (fl_imt == 1):
     #output
