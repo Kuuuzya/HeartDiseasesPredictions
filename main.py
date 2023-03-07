@@ -57,6 +57,7 @@ try:
 except:
     st.write('Модель НЕ загружена')
 
+
 age = 35*365
 height = 188
 weight = 95
