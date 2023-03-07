@@ -17,30 +17,6 @@ st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle
 st.title('Введение в проект', anchor='intro')
 st.sidebar.header('[Введение в проект](#intro)')
 
-
-st.subheader('Изучаем файл train.csv',anchor='train')
-st.sidebar.subheader('[Изучаем файл train.csv](#train)')
-
-train = pd.read_csv('train.csv')
-st.write('Информация о датасете Train')
-
-#сложный вывод информации, но иначе не работает
-buffer = io.StringIO()
-train.info(buf=buffer)
-s = buffer.getvalue()
-st.text(s)
-
-st.write('Первые 10 строк датасета Train')
-st.write(train.head(10))
-
-st.write('Данные выглядят целостно и полно. Однако, есть вопрос к колонке age. Это возраст в днях. '
-         'Для нас колонка не очень информативна, однако, такая детализация гораздо лучше подходит для работы модели.')
-
-
-#profile = ProfileReport(train, title="Agriculture Data")
-#st.write(train)
-#st_profile_report(profile)
-
 #input
 st.header('Проверим ваше сердце', anchor='heart')
 st.sidebar.header('[Проверим ваше сердце](#heart)')
@@ -54,6 +30,7 @@ rc.selectbox("Уровень холестерина",['Низкий', 'Сред�
 rc.write('')
 lc.write('')
 st.write('')
+
 
 #output
 with lc:
