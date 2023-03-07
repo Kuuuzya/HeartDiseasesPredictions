@@ -2,9 +2,8 @@ import pandas as pd
 import streamlit as st
 import io
 import pickle
-import xgboost
 import numpy as np
-from xgboost import XGBClassifier
+
 #from sklearn.preprocessing import StandardScaler, OneHotEncoder, RobustScaler
 
 #настраиваем вид страницы streamlit
