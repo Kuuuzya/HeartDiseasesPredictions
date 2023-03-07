@@ -3,6 +3,7 @@ import streamlit as st
 import io
 import pickle
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 
 #from sklearn.preprocessing import StandardScaler, OneHotEncoder, RobustScaler
 
@@ -56,7 +57,6 @@ try:
     st.write('Модель загружена')
 except:
     st.write('Модель НЕ загружена')
-
 
 age = 35*365
 height = 188
