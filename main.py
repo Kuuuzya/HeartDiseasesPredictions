@@ -47,7 +47,7 @@ else:
     fl_ap = 1
 
 imt = round(weight / ((height / 100) ** 2),2)
-st.warning('Жопа', str(imt))
+st.warning('Жопа'+str(imt), icon="⚠️")
 
 """ if (fl_ap == 1) and (fl_imt == 1):
     #output
