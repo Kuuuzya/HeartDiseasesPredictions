@@ -43,16 +43,11 @@ with rc:
     st.write('Уровень холестерина:', st.session_state.cholesterol.lower())
 
 
+#XGBoost не хочет подключаться к стримлиту, поэтому сделаем с RFC, он тоже неплох
 def load():
-    with open('model_xgb.save_model', 'rb') as mod:
+    with open('model_RFC.pcl', 'rb') as mod:
         return pickle.load(mod)
 model_test = load()
-
-#try:
-#    model_test = load()
-#    st.write('Модель загружена')
-#except:
-#    st.write('Модель НЕ загружена')
 
 age = 65*365
 height = 168
