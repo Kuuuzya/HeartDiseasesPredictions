@@ -19,7 +19,7 @@ st.sidebar.header('[Проверим ваше сердце](#heart)')
 st.subheader('Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.')
 lc, rc = st.columns(2)
 age = lc.slider('Возраст', 20, 100, 35 )
-gender = rc.radio("Пол", options=("М", "Ж"), key='gender')
+gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
 height = lc.slider('Рост (см)', 150, 210, 175)
 weight = rc.slider('Вес (кг)', 47, 150, 85 )
 ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120 )
@@ -28,33 +28,50 @@ ap_lo = rc.slider('Диастолическое (нижнее) давление'
 smoke = lc.radio("Курите?", options=("Нет", "Да"), key='smoke', horizontal=True)
 alco = lc.radio("Пьёте?", options=("Нет", "Да"), key='alco', horizontal=True)
 
-rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol", index=1)
-rc.selectbox("Уровень глюкозы в крови",['Низкий', 'Средний', 'Высокий'], key="gluc", index=1)
+cholesterol = rc.selectbox("Уровень холестерина",['Низкий', 'Средний', 'Высокий'], key="cholesterol", index=1)
+gluc = rc.selectbox("Уровень глюкозы в крови",['Низкий', 'Средний', 'Высокий'], key="gluc", index=1)
+active = rc.selectbox("Уровень физической активности",['Низкий', 'Высокий'], key="active")
 
-rc.write('')
-lc.write('')
+
 st.write('')
 
 #обработка
-fl = 0 #флажок, вверно ли введены данные
+fl_ap = 0 #флажок, вверно ли введены данные
 if ap_hi == ap_lo:
     st.warning('Верхнее давление не может быть равно нижнему')
 elif ap_hi<ap_lo:
     st.warning('Верхнее давление не может быть выше нижнего. Проверьте данные!')
 else:
-    fl = 1
+    fl_ap = 1
 
+imt = weight/((height/100)**2)
 if height == weight:
-    st.warning('Вес равен росту. Вам пизда')
-    fl = 0
-elif height<weight:
-    st.warning('Так не бывает, чтобы рост был меньше веса')
-    fl = 0
-else:
-    fl = 1
+    st.warning('Вес равен росту. Так не бывает. Проверьте данные')
+    fl_imt = 0
+elif imt<16:
+    st.warning('Ваш ИМТ: ', imt, ', выраженный дефицит массы тела')
+    fl_imt=1
+elif (imt >= 16)AND(imt < 18.5):
+    st.warning('Ваш ИМТ: ',imt,', недостаточная (дефицит) масса тела')
+    fl_imt = 1
+elif (imt >= 18.5)AND(imt <= 25):
+    st.write('Ваш ИМТ: ', imt, ', норма')
+    fl_imt = 1
+elif (imt>25)AND(imt<=30):
+    st.warning('Ваш ИМТ: ',imt,', избыточная масса тела (предожирение)')
+    fl_imt = 1
+elif (imt>30)AND(imt<=35):
+    st.warning('Ваш ИМТ: ',imt,', ожирение первой степени')
+    fl_imt = 1
+elif (imt>35)AND(imt<=40):
+    st.warning('Ваш ИМТ: ',imt,', ожирение второй степени')
+    fl_imt = 1
+else (imt>40):
+    st.warning('Ваш ИМТ: ',imt,', ожирение третьей степени')
+    fl_imt = 1
 
 
-""" if fl == 1:
+""" if (fl_ap == 1) AND (fl_imt == 1):
     #output
     with lc:
         st.header('Результаты')
