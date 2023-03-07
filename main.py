@@ -3,6 +3,8 @@ import streamlit as st
 import io
 import pickle
 import numpy as np
+import sklearn
+from sklearn.preprocessing import RobustScaler
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
@@ -53,11 +55,11 @@ model_test = load()
 #except:
 #    st.write('Модель НЕ загружена')
 
-age = 35*365
-height = 188
-weight = 95
-ap_hi = 120
-ap_lo = 70
+age = 65*365
+height = 168
+weight = 110
+ap_hi = 150
+ap_lo = 90
 gender = 1
 cholesterol = 1
 gluc = 1
@@ -65,10 +67,45 @@ smoke = 1
 alco = 1
 active = 0
 
-data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
-st.write(data)
+#data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
+
+data = pd.DataFrame({'age': age,
+              'height': height,
+              'weight': weight,
+              'ap_hi': ap_hi,
+              'ap_lo': ap_lo,
+              'gender_0': gender,
+              'gender_1': 0,
+              'cholesterol_0': cholesterol,
+              'cholesterol_1': 0,
+              'cholesterol_2': 0,
+              'gluc_0': gluc,
+              'gluc_1': 0,
+              'gluc_2': 0,
+              'smoke_0': 0,
+              'smoke_1': smoke,
+              'alco_0': 0,
+              'alco_1': alco,
+              'active_0': active,
+              'active_1': 0
+              }, index=[0])
+st.write(data.head())
+
+numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
+
+features = pd.read_csv('features.csv')
+
+scaler = RobustScaler()
+scaler.fit(features[numeric])
+data[numeric] = scaler.transform(data[numeric])
+
+
+
+st.write(data.head())
 
 pr = model_test.predict_proba(data)[:,1]
 
-#st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(y_pr))
+
+
+st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(pr))
 st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
