@@ -47,7 +47,7 @@ else:
     fl_ap = 1
 
 imt = weight / ((height / 100) ** 2)
-st.write('Жопа', imt)
+st.write('Жопа', imt.round(2))
 
 """ if (fl_ap == 1) and (fl_imt == 1):
     #output
