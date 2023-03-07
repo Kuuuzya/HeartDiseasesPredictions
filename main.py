@@ -3,7 +3,6 @@ import streamlit as st
 import io
 import pickle
 import numpy as np
-#import scikit-learn
 from sklearn.preprocessing import RobustScaler
 
 #настраиваем вид страницы streamlit
