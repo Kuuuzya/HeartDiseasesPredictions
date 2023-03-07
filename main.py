@@ -3,9 +3,8 @@ import streamlit as st
 import io
 import pickle
 import numpy as np
+import sklearn
 from sklearn.ensemble import RandomForestClassifier
-
-#from sklearn.preprocessing import StandardScaler, OneHotEncoder, RobustScaler
 
 #настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
@@ -50,7 +49,7 @@ with rc:
 
 
 def load():
-    with open('model_RFC.pkl', 'rb') as mod:
+    with open('model_RFC.pcl', 'rb') as mod:
         return pickle.load(mod)
 try:
     model_test = load()
