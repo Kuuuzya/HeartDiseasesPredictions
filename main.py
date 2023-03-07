@@ -45,7 +45,7 @@ else:
     fl_ap = 1
 
 imt = round(weight / ((height / 100) ** 2), 2)
-
+fl_imt = 0
 if height == weight:
     st.warning('Вес равен росту. Так не бывает. Проверьте данные!', icon='⚠️')
     fl_imt = 0
@@ -72,11 +72,113 @@ elif (imt > 40) and (imt <= 60):
     fl_imt = 1
 else:
     st.warning('Ваш ИМТ: ' + str(imt) + ', так не бывает. Проверьте данные!', icon='⚠️')
-    fl_imt = 1
+    fl_imt = 0
 
-""" if (fl_ap == 1) and (fl_imt == 1):
-    #output
-    with lc:
+if (fl_ap == 1) and (fl_imt == 1):
+    #XGBoost не хочет подключаться к стримлиту, поэтому сделаем с RFC, он тоже неплох
+    def load():
+        with open('model_RFC.pcl', 'rb') as mod:
+            return pickle.load(mod)
+    model_test = load()
+
+    #подготовка данных для модели
+    age = age*365.25
+    if gender == "Женщина":
+        gender_0 = 1
+        gender_1 = 0
+    else:
+        gender_0 = 0
+        gender_1 = 1
+
+    if smoke == "Да":
+        smoke_1 = 1
+        smoke_0 = 0
+    else:
+        smoke_1 = 0
+        smoke_0 = 1
+
+    if alco == "Да":
+        alco_1 = 1
+        alco_0 = 0
+    else:
+        alco_1 = 0
+        alco_0 = 1
+
+    if cholesterol == "Низкий":
+        cholesterol_0 = 1
+        cholesterol_1 = 0
+        cholesterol_2 = 0
+    elif cholesterol == "Средний":
+        cholesterol_0 = 0
+        cholesterol_1 = 1
+        cholesterol_2 = 0
+    else:
+        cholesterol_0 = 0
+        cholesterol_1 = 0
+        cholesterol_2 = 1
+
+    if gluc == "Низкий":
+        gluc_0 = 1
+        gluc_1 = 0
+        gluc_2 = 0
+    elif gluc == "Средний":
+        gluc_0 = 0
+        gluc_1 = 1
+        gluc_2 = 0
+    else:
+        gluc_0 = 0
+        gluc_1 = 0
+        gluc_2 = 1
+
+    if active == 'Низкий':
+        active_0 = 1
+        active_1 = 0
+    else:
+        active_0 = 0
+        active_1 = 1
+
+
+    #data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
+
+    data = pd.DataFrame({'age': age,
+                  'height': height,
+                  'weight': weight,
+                  'ap_hi': ap_hi,
+                  'ap_lo': ap_lo,
+                  'gender_0': gender_0,
+                  'gender_1': gender_1,
+                  'cholesterol_0': cholesterol_0,
+                  'cholesterol_1': cholesterol_1,
+                  'cholesterol_2': cholesterol_2,
+                  'gluc_0': gluc_0,
+                  'gluc_1': gluc_1,
+                  'gluc_2': gluc_2,
+                  'smoke_0': smoke_0,
+                  'smoke_1': smoke_1,
+                  'alco_0': alco_0,
+                  'alco_1': alco_1,
+                  'active_0': active_0,
+                  'active_1': active_1
+                  }, index=[0])
+    st.write(data.head())
+
+    #numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
+
+    #features = pd.read_csv('features.csv')
+
+    #scaler = RobustScaler()
+    #scaler.fit(features[numeric])
+    #data[numeric] = scaler.transform(data[numeric])
+
+    #pr = model_test.predict_proba(data)[:,1]
+
+    #st.write(pr)
+    #st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(pr))
+st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
+
+
+#output
+"""    with lc:
         st.header('Результаты')
         st.write('Давление:', ap_hi,'/',ap_lo)
         if st.session_state.smoke == False:
@@ -88,64 +190,4 @@ else:
         st.write('')
         st.write('')
         st.write('Уровень холестерина:', st.session_state.cholesterol.lower())
-
-
-    #XGBoost не хочет подключаться к стримлиту, поэтому сделаем с RFC, он тоже неплох
-    def load():
-        with open('model_RFC.pcl', 'rb') as mod:
-            return pickle.load(mod)
-    model_test = load()
-
-    age = age*365
-    height = 168
-    weight = 110
-    ap_hi = 150
-    ap_lo = 90
-    gender = 1
-    cholesterol = 1
-    gluc = 1
-    smoke = 1
-    alco = 1
-    active = 0
-
-    #data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
-
-    data = pd.DataFrame({'age': age,
-                  'height': height,
-                  'weight': weight,
-                  'ap_hi': ap_hi,
-                  'ap_lo': ap_lo,
-                  'gender_0': gender,
-                  'gender_1': 0,
-                  'cholesterol_0': cholesterol,
-                  'cholesterol_1': 0,
-                  'cholesterol_2': 0,
-                  'gluc_0': gluc,
-                  'gluc_1': 0,
-                  'gluc_2': 0,
-                  'smoke_0': 0,
-                  'smoke_1': smoke,
-                  'alco_0': 0,
-                  'alco_1': alco,
-                  'active_0': active,
-                  'active_1': 0
-                  }, index=[0])
-    st.write(data.head())
-
-    numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
-
-    features = pd.read_csv('features.csv')
-
-    scaler = RobustScaler()
-    scaler.fit(features[numeric])
-    data[numeric] = scaler.transform(data[numeric])
-
-
-
-
-    pr = model_test.predict_proba(data)[:,1]
-
-
-    st.write(pr)
-    st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(pr))"""
-st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
+"""
