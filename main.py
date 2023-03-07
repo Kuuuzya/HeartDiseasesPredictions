@@ -181,10 +181,10 @@ if (fl_ap == 1) and (fl_imt == 1):
         if (cholesterol_1 == 1) or (cholesterol_2 == 1):
             st.sidebar.warning('Обратите внимание на ваш уровень холестерина в крови!')
     else:
-        st.sidebar.write('Вероятность риска развития сердечно-сосудистого заболевания составляет: ' + str(pr)+'%')
+        st.sidebar.write('Риск развития сердечно-сосудистого заболевания составляет: ' + str(pr)+'%')
 else:
     st.warning('Тут будут результаты, когда вы правильно введёте данные.')
 
-st.sidebar.write('_Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)_')
+st.sidebar.markdown("<span style='color:lightgrey'>_Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)_</span>")
 
 
