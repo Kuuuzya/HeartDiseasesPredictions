@@ -7,15 +7,13 @@ from sklearn.preprocessing import RobustScaler
 
 # настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
-                   layout='wide',
-                   initial_sidebar_state='expanded')
+                   layout='wide'
+                   #initial_sidebar_state='expanded'
+                   )
 
-st.title('Введение в проект', anchor='intro')
-st.sidebar.header('[Введение в проект](#intro)')
+st.title('Проверим ваше сердце')
 
 # input
-st.header('Проверим ваше сердце', anchor='heart')
-st.sidebar.header('[Проверим ваше сердце](#heart)')
 st.subheader(
     'Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.')
 lc, rc = st.columns(2)
