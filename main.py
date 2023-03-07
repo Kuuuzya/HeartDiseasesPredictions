@@ -66,7 +66,7 @@ elif (imt>30)and(imt<=35):
 elif (imt>35)and(imt<=40):
     st.warning('Ваш ИМТ: ',imt,', ожирение второй степени')
     fl_imt = 1
-else (imt>40):
+else:
     st.warning('Ваш ИМТ: ',imt,', ожирение третьей степени')
     fl_imt = 1
 
