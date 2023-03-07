@@ -73,7 +73,6 @@ with rc:
 def load():
     with open('model_xgb.pkl', 'rb') as mod:
         return pickle.load(mod)
-
 model_test = load()
 
 age = 35*365
