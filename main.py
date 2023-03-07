@@ -45,32 +45,7 @@ else:
     fl_ap = 1
 
 imt = weight/((height/100)**2)
-
-if height == weight:
-    st.warning('Вес равен росту. Так не бывает. Проверьте данные')
-    fl_imt = 0
-elif imt<16:
-    st.warning('Ваш ИМТ: '+imt+', выраженный дефицит массы тела')
-    fl_imt=1
-elif (imt >= 16)and(imt < 18.5):
-    st.warning('Ваш ИМТ: '+imt+', недостаточная (дефицит) масса тела')
-    fl_imt = 1
-elif (imt >= 18.5)and(imt <= 25):
-    st.write('Ваш ИМТ: '+imt+', норма')
-    fl_imt = 1
-elif (imt>25)and(imt<=30):
-    st.warning('Ваш ИМТ: '+imt+', избыточная масса тела (предожирение)')
-    fl_imt = 1
-elif (imt>30)and(imt<=35):
-    st.warning('Ваш ИМТ: ',imt,', ожирение первой степени')
-    fl_imt = 1
-elif (imt>35)and(imt<=40):
-    st.warning('Ваш ИМТ: ',imt,', ожирение второй степени')
-    fl_imt = 1
-else:
-    st.warning('Ваш ИМТ: ',imt,', ожирение третьей степени')
-    fl_imt = 1
-
+st.warning(imt)
 
 """ if (fl_ap == 1) and (fl_imt == 1):
     #output
