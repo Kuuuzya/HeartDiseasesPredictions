@@ -46,7 +46,7 @@ elif ap_hi < ap_lo:
 else:
     fl_ap = 1
 
-imt: float | Any = weight / ((height / 100) ** 2)
+imt = weight / ((height / 100) ** 2)
 st.write('Жопа', imt)
 
 """ if (fl_ap == 1) and (fl_imt == 1):
