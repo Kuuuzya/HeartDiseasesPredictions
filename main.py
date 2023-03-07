@@ -186,20 +186,12 @@ if (fl_ap == 1) and (fl_imt == 1):
             st.warning('Обратите внимание на ваш уровень холестерина в крови!')
     else:
         st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет: ' + str(pr)+'%')
-st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
 
 
-#output
-"""    with lc:
-        st.header('Результаты')
-        st.write('Давление:', ap_hi,'/',ap_lo)
-        if st.session_state.smoke == False:
-            st.write('Не курит')
-        else:
-            st.write('Курит')
+st.write('')
+st.write('')
+st.write('')
+st.write('')
+st.write('_Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)_')
 
-    with rc:
-        st.write('')
-        st.write('')
-        st.write('Уровень холестерина:', st.session_state.cholesterol.lower())
-"""
+
