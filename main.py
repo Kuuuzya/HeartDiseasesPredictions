@@ -51,7 +51,11 @@ with rc:
 def load():
     with open('model_xgb.pkl', 'rb') as mod:
         return pickle.load(mod)
-model_test = load()
+try:
+    model_test = load()
+    st.write('Модель загружена')
+except:
+    st.write('Модель НЕ загружена')
 
 age = 35*365
 height = 188
@@ -67,7 +71,7 @@ active = 0
 
 data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
 st.write(data)
-y_pr = model_test.predict_proba(data)[:,1]
-st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(y_pr))
+#y_pr = model_test.predict_proba(data)[:,1]
 
+st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет {}'.format(y_pr))
 st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
