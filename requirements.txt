@@ -2,3 +2,4 @@ xgboost
 sklearn
 pandas
 pickle
+pip
