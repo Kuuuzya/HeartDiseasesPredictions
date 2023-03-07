@@ -172,8 +172,8 @@ if (fl_ap == 1) and (fl_imt == 1):
 
     pr = model_test.predict_proba(data)[:,1]
 
-
-    st.write('Вероятность риска развития сердечно-сосудистого заболевания составляет: ', str(float(pr*100)),'%')
+    st.header('Результаты')
+    st.warning('Вероятность риска развития сердечно-сосудистого заболевания составляет: '+str(round(float(pr*100),2))+'%')
 st.write('Другие проекты в [моём профиле на GitHub](https://github.com/Kuuuzya)')
 
 
