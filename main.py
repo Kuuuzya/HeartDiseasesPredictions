@@ -49,7 +49,7 @@ with rc:
 
 
 def load():
-    with open('model_xgb.pkl', 'rb') as mod:
+    with open('model_xgb.save_model', 'wb') as mod:
         return pickle.load(mod)
 try:
     model_test = load()
