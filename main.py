@@ -1,5 +1,3 @@
-from typing import Any
-
 import pandas as pd
 import streamlit as st
 import io
@@ -24,7 +22,7 @@ lc, rc = st.columns(2)
 age = lc.slider('Возраст', 20, 100, 35)
 gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
 height = lc.slider('Рост (см)', 150, 210, 175)
-weight = rc.slider('Вес (кг)', 47, 150, 75)
+weight = rc.slider('Вес (кг)', 47, 150, 85)
 ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120)
 ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70)
 
@@ -46,8 +44,32 @@ elif ap_hi < ap_lo:
 else:
     fl_ap = 1
 
-imt = round(weight / ((height / 100) ** 2),2)
-st.warning('Жопа'+str(imt), icon="⚠️")
+imt = round(weight / ((height / 100) ** 2), 2)
+
+if height == weight:
+    st.warning('Вес равен росту. Так не бывает. Проверьте данные', icon='⚠️')
+    fl_imt = 0
+elif imt < 16:
+    st.warning('Ваш ИМТ: ' + str(imt) + ', выраженный дефицит массы тела', icon='⚠️')
+    fl_imt = 1
+elif (imt >= 16) and (imt < 18.5):
+    st.warning('Ваш ИМТ: ' + str(imt) + ', недостаточная (дефицит) масса тела', icon='⚠️')
+    fl_imt = 1
+elif (imt >= 18.5) and (imt <= 25):
+    st.write('Ваш ИМТ: ' + str(imt) + ', норма')
+    fl_imt = 1
+elif (imt > 25) and (imt <= 30):
+    st.warning('Ваш ИМТ: ' + str(imt) + ', избыточная масса тела (предожирение)', icon='⚠️')
+    fl_imt = 1
+elif (imt > 30) and (imt <= 35):
+    st.warning('Ваш ИМТ: ' + str(imt) + ', ожирение первой степени', icon='⚠️')
+    fl_imt = 1
+elif (imt > 35) and (imt <= 40):
+    st.warning('Ваш ИМТ: ' + str(imt) + ', ожирение второй степени', icon='⚠️')
+    fl_imt = 1
+else:
+    st.warning('Ваш ИМТ: ' + str(imt) + ', ожирение третьей степени', icon='⚠️')
+    fl_imt = 1
 
 """ if (fl_ap == 1) and (fl_imt == 1):
     #output
