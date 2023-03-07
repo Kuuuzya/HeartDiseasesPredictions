@@ -15,8 +15,7 @@ st.title('Проверим ваше сердце')
 
 # input
 st.snow()
-st.write(
-    '<span style='color:lightgrey'>Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.</span>', unsafe_allow_html=True)
+st.markdown('<span style='color:lightgrey'>Заполните информацию о своём здоровье на данный момент, чтобы узнать, какой есть риск сердечных заболеваний.</span>', unsafe_allow_html=True)
 lc, rc = st.columns(2)
 age = lc.slider('Возраст', 20, 100, 35)
 gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
