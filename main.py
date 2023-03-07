@@ -50,7 +50,7 @@ with rc:
 
 
 def load():
-    with open('model_RFC.pkl', 'rb') as mod:
+    with open('model_RFC.pcl', 'rb') as mod:
         return pickle.load(mod)
 try:
     model_test = load()
