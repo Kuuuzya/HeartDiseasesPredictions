@@ -24,7 +24,7 @@ lc, rc = st.columns(2)
 age = lc.slider('Возраст', 20, 100, 35)
 gender = rc.radio("Пол", options=("Мужчина", "Женщина"), key='gender')
 height = lc.slider('Рост (см)', 150, 210, 175)
-weight = rc.slider('Вес (кг)', 47, 150, 85)
+weight = rc.slider('Вес (кг)', 47, 150, 75)
 ap_hi = lc.slider('Систолическое (верхнее) давление', 80, 150, 120)
 ap_lo = rc.slider('Диастолическое (нижнее) давление', 40, 100, 70)
 
@@ -47,7 +47,7 @@ else:
     fl_ap = 1
 
 imt = round(weight / ((height / 100) ** 2),2)
-st.write('Жопа', imt)
+st.write('Жопа', string(imt))
 
 """ if (fl_ap == 1) and (fl_imt == 1):
     #output
