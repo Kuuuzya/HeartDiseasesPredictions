@@ -76,10 +76,6 @@ if (fl_ap == 1) and (fl_imt == 1):
             return pickle.load(mod)
     model_test = load()
 
-    def load_pre():
-        with open('pipe.pcl', 'rb') as pre:
-            return pickle.load(pre)
-    pre_test = load_pre()
 
 
 
@@ -135,7 +131,7 @@ if (fl_ap == 1) and (fl_imt == 1):
                   'alco': alco,
                   'active': active
                   }, index=[0])
-    #st.write(data.head())
+    st.write(data.head())
  #   numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 
 #    features = pd.read_csv('features.csv')
@@ -144,7 +140,11 @@ if (fl_ap == 1) and (fl_imt == 1):
  #   scaler.fit(features[numeric])
  #   data[numeric] = scaler.transform(data[numeric])
 
-    data = pre_test.transform(data)
+    with open("pipe.pcl", "rb") as f:
+        loaded_pipe = pickle.load(f)
+
+    new_data_transformed = loaded_pipe.transform(data)
+
     pr = model_test.predict_proba(data)[:,1]
 
     st.sidebar.header('Результаты')
