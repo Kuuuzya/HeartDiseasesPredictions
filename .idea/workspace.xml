@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a189ff9-c8a4-4b28-a5e7-032d2817be8e" name="Changes" comment="Add final beautifications v1.3.5">
+    <list default="true" id="2a189ff9-c8a4-4b28-a5e7-032d2817be8e" name="Changes" comment="Changed preprocessing to file v.1.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,16 +24,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/kuuuzya/PythonProjects/Practicum/HearthDiseasesPredictions",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kuuuzya/PythonProjects/Practicum/HearthDiseasesPredictions&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,7 +50,98 @@
       <option name="project" value="LOCAL" />
       <updated>1678211555307</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add final beautifications v1.3.5">
+      <created>1678617961554</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678617961554</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changed preprocessing to file">
+      <created>1678617990770</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678617990770</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changed preprocessing to file v.1.1">
+      <created>1678618121781</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678618121781</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changed preprocessing to file v.1.1">
+      <created>1678618191554</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678618191554</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changed preprocessing to file v.1.1">
+      <created>1678618447671</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678618447671</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed preprocessing to file v.1.2">
+      <created>1678618648837</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678618648837</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changed preprocessing to file v.1.2">
+      <created>1678619002574</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678619002574</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changed preprocessing to file v.1.2">
+      <created>1678619198976</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678619198976</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changed preprocessing to file v.1.2">
+      <created>1678619238507</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678619238507</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changed preprocessing to file v.1.2">
+      <created>1678619354640</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678619354640</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changed preprocessing to file v.1.3">
+      <created>1678619439587</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678619439587</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changed preprocessing to file v.1.4">
+      <created>1678620078489</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678620078489</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Changed preprocessing to file v.1.4">
+      <created>1678620132967</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678620132967</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -65,6 +157,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add final beautifications v1.3.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add final beautifications v1.3.5" />
+    <MESSAGE value="Changed preprocessing to file" />
+    <MESSAGE value="Changed preprocessing to file v.1.1" />
+    <MESSAGE value="Changed preprocessing to file v.1.2" />
+    <MESSAGE value="Changed preprocessing to file v.1.3" />
+    <MESSAGE value="Changed preprocessing to file v.1.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed preprocessing to file v.1.4" />
   </component>
 </project>
