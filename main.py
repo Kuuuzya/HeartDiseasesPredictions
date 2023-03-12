@@ -157,7 +157,7 @@ if (fl_ap == 1) and (fl_imt == 1):
             st.sidebar.warning('Обратите внимание на ваше верхнее давление!')
         if (ap_lo > 90) or (ap_lo < 50):
             st.sidebar.warning('Обратите внимание на ваше нижнее давление!')
-        if (cholesterol_1 == 1) or (cholesterol_2 == 1):
+        if (cholesterol == 1) or (cholesterol == 2):
             st.sidebar.warning('Обратите внимание на ваш уровень холестерина в крови!')
     else:
         st.sidebar.write('Риск развития сердечно-сосудистого заболевания составляет: ' + str(pr)+'%')
