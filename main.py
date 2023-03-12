@@ -135,7 +135,6 @@ if (fl_ap == 1) and (fl_imt == 1):
                   'active': active
                   }, index=[0])
     #st.write(data.head())
-
  #   numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 
 #    features = pd.read_csv('features.csv')
