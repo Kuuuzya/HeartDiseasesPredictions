@@ -72,7 +72,7 @@ else:
 if (fl_ap == 1) and (fl_imt == 1):
     #XGBoost не хочет подключаться к стримлиту, поэтому сделаем с RFC, он тоже неплох
     def load():
-        with open('model_RFC.pcl', 'rb') as mod:
+        with open('model_XGB.pcl', 'rb') as mod:
             return pickle.load(mod)
     model_test = load()
 
