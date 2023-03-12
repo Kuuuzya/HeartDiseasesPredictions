@@ -39,6 +39,7 @@ elif ap_hi < ap_lo:
 else:
     fl_ap = 1
 
+#Выводим различные алерты, если ввод данных некорректный
 imt = round(weight / ((height / 100) ** 2), 2)
 fl_imt = 0
 if height == weight:
@@ -71,14 +72,11 @@ else:
 
 if (fl_ap == 1) and (fl_imt == 1):
     #XGBoost не хочет подключаться к стримлиту, поэтому сделаем с RFC, он тоже неплох
+    #UPD: подключил XGBoost
     def load():
         with open('model_XGB.pcl', 'rb') as mod:
             return pickle.load(mod)
     model_test = load()
-
-
-
-
 
     #подготовка данных для модели
     age = age*365.25
@@ -116,9 +114,6 @@ if (fl_ap == 1) and (fl_imt == 1):
     else:
         active = 1
 
-
-    #data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
-
     data = pd.DataFrame({'age': age,
                   'height': height,
                   'weight': weight,
@@ -131,18 +126,19 @@ if (fl_ap == 1) and (fl_imt == 1):
                   'alco': alco,
                   'active': active
                   }, index=[0])
-    #st.write(data.head())
- #   numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 
+#старый кусок кода, когда была ручная обработка в приложении
+#   numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 #    features = pd.read_csv('features.csv')
-
  #   scaler = RobustScaler()
  #   scaler.fit(features[numeric])
  #   data[numeric] = scaler.transform(data[numeric])
 
+    #загрузим пайплайн для обработки с помощью OHE и Scaler
     with open("pipe.pcl", "rb") as f:
         loaded_pipe = pickle.load(f)
 
+    #трансформируем данные и вернем вид датафрейму
     new_data_transformed = loaded_pipe.transform(data)
     numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
     categorical = ['gender', 'cholesterol', 'gluc', 'smoke', 'alco', 'active']
@@ -150,7 +146,7 @@ if (fl_ap == 1) and (fl_imt == 1):
     column_names = numeric + list(loaded_pipe.named_steps['preprocessor'].named_transformers_["cat"].get_feature_names_out(categorical))
     new_data_transformed_df = pd.DataFrame(new_data_transformed, columns=column_names)
 
-    #st.write(new_data_transformed_df)
+    #запускаем модель и выводим результаты в сайдбаре
     pr = model_test.predict_proba(new_data_transformed_df)[:,1]
 
     st.sidebar.header('Результаты')
