@@ -77,7 +77,7 @@ if (fl_ap == 1) and (fl_imt == 1):
     model_test = load()
 
     def load_pre():
-        with open('preprocessor.pcl', 'rb') as pre:
+        with open('pipe.pcl', 'rb') as pre:
             return pickle.load(pre)
     pre_test = load_pre()
 
