@@ -75,61 +75,49 @@ if (fl_ap == 1) and (fl_imt == 1):
             return pickle.load(mod)
     model_test = load()
 
+    def load_pre():
+        with open('preprocessor.pcl', 'rb') as pre:
+            return pickle.load(pre)
+    pre_test = load_pre()
+
+
+
+
     #подготовка данных для модели
     age = age*365.25
     if gender == "Женщина":
-        gender_0 = 1
-        gender_1 = 0
+        gender=0
     else:
-        gender_0 = 0
-        gender_1 = 1
+        gender = 1
 
     if smoke == "Да":
-        smoke_1 = 1
-        smoke_0 = 0
+        smoke = 1
     else:
-        smoke_1 = 0
-        smoke_0 = 1
+        smoke = 0
 
     if alco == "Да":
-        alco_1 = 1
-        alco_0 = 0
+        alco = 1
     else:
-        alco_1 = 0
-        alco_0 = 1
+        alco = 0
 
     if cholesterol == "Низкий":
-        cholesterol_0 = 1
-        cholesterol_1 = 0
-        cholesterol_2 = 0
+        cholesterol = 0
     elif cholesterol == "Средний":
-        cholesterol_0 = 0
-        cholesterol_1 = 1
-        cholesterol_2 = 0
+        cholesterol = 1
     else:
-        cholesterol_0 = 0
-        cholesterol_1 = 0
-        cholesterol_2 = 1
+        cholesterol = 2
 
     if gluc == "Низкий":
-        gluc_0 = 1
-        gluc_1 = 0
-        gluc_2 = 0
+        gluc = 0
     elif gluc == "Средний":
-        gluc_0 = 0
-        gluc_1 = 1
-        gluc_2 = 0
+        gluc = 1
     else:
-        gluc_0 = 0
-        gluc_1 = 0
-        gluc_2 = 1
+        gluc = 2
 
     if active == 'Низкий':
-        active_0 = 1
-        active_1 = 0
+        active = 0
     else:
-        active_0 = 0
-        active_1 = 1
+        active = 1
 
 
     #data = [[age,height,weight,ap_hi,ap_lo,gender,cholesterol,gluc,smoke,alco,active ]]
@@ -139,30 +127,24 @@ if (fl_ap == 1) and (fl_imt == 1):
                   'weight': weight,
                   'ap_hi': ap_hi,
                   'ap_lo': ap_lo,
-                  'gender_0': gender_0,
-                  'gender_1': gender_1,
-                  'cholesterol_0': cholesterol_0,
-                  'cholesterol_1': cholesterol_1,
-                  'cholesterol_2': cholesterol_2,
-                  'gluc_0': gluc_0,
-                  'gluc_1': gluc_1,
-                  'gluc_2': gluc_2,
-                  'smoke_0': smoke_0,
-                  'smoke_1': smoke_1,
-                  'alco_0': alco_0,
-                  'alco_1': alco_1,
-                  'active_0': active_0,
-                  'active_1': active_1
+                  'gender': gender,
+                  'cholesterol': cholesterol,
+                  'gluc': gluc,
+                  'smoke': smoke,
+                  'alco': alco,
+                  'active': active
                   }, index=[0])
     #st.write(data.head())
 
-    numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
+ #   numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 
-    features = pd.read_csv('features.csv')
+#    features = pd.read_csv('features.csv')
 
-    scaler = RobustScaler()
-    scaler.fit(features[numeric])
-    data[numeric] = scaler.transform(data[numeric])
+ #   scaler = RobustScaler()
+ #   scaler.fit(features[numeric])
+ #   data[numeric] = scaler.transform(data[numeric])
+
+    data = model_test(data)
     pr = model_test.predict_proba(data)[:,1]
 
     st.sidebar.header('Результаты')
