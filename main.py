@@ -146,7 +146,9 @@ if (fl_ap == 1) and (fl_imt == 1):
     new_data_transformed = loaded_pipe.transform(data)
     numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
     categorical = ['gender', 'cholesterol', 'gluc', 'smoke', 'alco', 'active']
-    column_names = numeric + list(loaded_pipe.named_transformers_["cat"].get_feature_names_out(categorical))
+
+    column_names = numeric_cols + list(
+        loaded_pipe.named_steps['preprocessor'].named_transformers_["cat"].get_feature_names(categorical_cols))
     new_data_transformed_df = pd.DataFrame(new_data_transformed, columns=column_names)
 
     st.write(new_data_transformed_df)
