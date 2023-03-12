@@ -3,7 +3,8 @@ import streamlit as st
 import io
 import pickle
 import numpy as np
-from sklearn.preprocessing import RobustScaler
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, RobustScaler
+from sklearn.compose import ColumnTransformer
 
 # настраиваем вид страницы streamlit
 st.set_page_config(page_title='Sergey Kuznetsov, Ya Practicum project for Kaggle competition',
