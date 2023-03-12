@@ -144,7 +144,7 @@ if (fl_ap == 1) and (fl_imt == 1):
         loaded_pipe = pickle.load(f)
 
     new_data_transformed = loaded_pipe.transform(data)
-    st.write(new_data_transformed.head())
+    st.write(new_data_transformed)
     pr = model_test.predict_proba(new_data_transformed)[:,1]
 
     st.sidebar.header('Результаты')
