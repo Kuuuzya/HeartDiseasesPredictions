@@ -144,8 +144,13 @@ if (fl_ap == 1) and (fl_imt == 1):
         loaded_pipe = pickle.load(f)
 
     new_data_transformed = loaded_pipe.transform(data)
-    st.write(new_data_transformed)
-    pr = model_test.predict_proba(new_data_transformed)[:,1]
+    numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
+    categorical = ['gender', 'cholesterol', 'gluc', 'smoke', 'alco', 'active']
+    column_names = numeric + list(loaded_pipe.named_transformers_["cat"].get_feature_names_out(categorical))
+    new_data_transformed_df = pd.DataFrame(new_data_transformed, columns=column_names)
+
+    st.write(new_data_transformed_df)
+    pr = model_test.predict_proba(new_data_transformed_df)[:,1]
 
     st.sidebar.header('Результаты')
     pr = round(float(pr*100),2)
