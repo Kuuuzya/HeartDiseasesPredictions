@@ -131,7 +131,7 @@ if (fl_ap == 1) and (fl_imt == 1):
                   'alco': alco,
                   'active': active
                   }, index=[0])
-    st.write(data.head())
+    #st.write(data.head())
  #   numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
 
 #    features = pd.read_csv('features.csv')
@@ -147,10 +147,10 @@ if (fl_ap == 1) and (fl_imt == 1):
     numeric = ['age', 'ap_hi', 'ap_lo', 'height', 'weight']
     categorical = ['gender', 'cholesterol', 'gluc', 'smoke', 'alco', 'active']
 
-    column_names = numeric + list(loaded_pipe.named_steps['preprocessor'].named_transformers_["cat"].get_feature_names(categorical))
+    column_names = numeric + list(loaded_pipe.named_steps['preprocessor'].named_transformers_["cat"].get_feature_names_out(categorical))
     new_data_transformed_df = pd.DataFrame(new_data_transformed, columns=column_names)
 
-    st.write(new_data_transformed_df)
+    #st.write(new_data_transformed_df)
     pr = model_test.predict_proba(new_data_transformed_df)[:,1]
 
     st.sidebar.header('Результаты')
