@@ -144,7 +144,7 @@ if (fl_ap == 1) and (fl_imt == 1):
  #   scaler.fit(features[numeric])
  #   data[numeric] = scaler.transform(data[numeric])
 
-    data = pre_test(data)
+    data = pre_test.transform(data)
     pr = model_test.predict_proba(data)[:,1]
 
     st.sidebar.header('Результаты')
