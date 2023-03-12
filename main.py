@@ -145,7 +145,7 @@ if (fl_ap == 1) and (fl_imt == 1):
 
     new_data_transformed = loaded_pipe.transform(data)
 
-    pr = model_test.predict_proba(data)[:,1]
+    pr = model_test.predict_proba(new_data_transformed)[:,1]
 
     st.sidebar.header('Результаты')
     pr = round(float(pr*100),2)
